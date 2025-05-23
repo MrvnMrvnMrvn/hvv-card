@@ -119,6 +119,7 @@ class HvvCard extends LitElement {
                                 const departureHours = Math.floor((diffMs / (1000*60*60)) % 24);
                                 const departureMins = Math.round((diffMs / (1000*60)) % 60);
                                 const cancelled = attr['cancelled'] === true;
+                                const extra = attr['extra'] === true;
 
                                 count++;
 
@@ -131,6 +132,7 @@ class HvvCard extends LitElement {
                                         <td class="expand">
                                             ${direction}
                                             ${cancelled ? html`<span class="cancelled"> – fällt aus</span>` : ''}
+                                            ${extra ? html`<span class="extra"> - Verstärker</span>` : ''}
                                         </td>
                                         <td class="narrow" style="text-align:right;">
                                             ${this._config.show_time ?
@@ -200,6 +202,11 @@ class HvvCard extends LitElement {
             font-weight: bold;
         }
 
+        span.extra {
+            color: #c98200};
+            font-weight: bold;
+        }
+
         span.delay_minutes {
              color: #e2001a;
         }
@@ -235,7 +242,7 @@ class HvvCard extends LitElement {
 
         span.ICE, span.RE, span.EC, span.IC, span.RB, span.R {
             background-color: transparent;
-            color: #000;
+            color: #c1121c;
         }
 
         span.U1 {
@@ -260,6 +267,10 @@ class HvvCard extends LitElement {
 
         span.S2 {
             background-color: #b51143;
+        }
+
+        span.S2-SEV {
+            background-color: #b51143
         }
 
         span.S3 {
