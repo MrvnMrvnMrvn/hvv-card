@@ -133,7 +133,9 @@ class HvvCard extends LitElement {
                                                     departureHours + `:` + departureMins :
                                                     departureMins
                                             }
-                                            ${delay_minutes > 0 ?
+                                            ${cancelled == true ?
+                                                html`<span class="delay_minutes">fällt aus</span>` :
+                                                delay_minutes > 0 ?
                                                 html`<span class="delay_minutes">+${delay_minutes}</span>` :
                                                 ``}
                                             ${delay_minutes <= 0 && this._config.show_time ?
@@ -222,7 +224,7 @@ class HvvCard extends LitElement {
 
         span.ICE, span.RE, span.EC, span.IC, span.RB, span.R {
             background-color: transparent;
-            color: #000;
+            color: #ffffff;
         }
 
         span.U1 {
@@ -263,18 +265,6 @@ class HvvCard extends LitElement {
 
         span.S6 {
             background-color: #d2d900;
-        }
-
-        span.S11 {
-            background-color: #31962b;
-        }
-
-        span.S21 {
-            background-color: #b51143;
-        }
-
-        span.S31 {
-            background-color: #622181;
         }
       `;
     }
