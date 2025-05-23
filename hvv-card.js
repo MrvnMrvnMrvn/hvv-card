@@ -203,7 +203,7 @@ class HvvCard extends LitElement {
         }
 
         span.extra {
-            color: #c98200};
+            color: #c98200;
             font-weight: bold;
         }
 
