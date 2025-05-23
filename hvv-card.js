@@ -118,14 +118,20 @@ class HvvCard extends LitElement {
                                 const diffMs = departure - today;
                                 const departureHours = Math.floor((diffMs / (1000*60*60)) % 24);
                                 const departureMins = Math.round((diffMs / (1000*60)) % 60);
+                                const cancelled = attr['cancelled'] === true;
 
                                 count++;
 
                                 return count <= max
                                 ? html`
                                     <tr>
-                                        <td class="narrow" style="text-align:center;"><span class="line ${type} ${line}">${line}</span></td>
-                                        <td class="expand">${direction}</td>
+                                        <td class="narrow" style="text-align:center;">
+                                            <span class="line ${type} ${line}">${line}</span>
+                                        </td>
+                                        <td class="expand">
+                                            ${direction}
+                                            ${cancelled ? html`<span style="color: red; font-weight: bold;"> – fällt aus</span>` : ''}
+                                        </td>
                                         <td class="narrow" style="text-align:right;">
                                             ${this._config.show_time ?
                                                 departure.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) :
@@ -147,6 +153,7 @@ class HvvCard extends LitElement {
                                     `
                                 : html ``;
                             })}
+
                         </table>
                     </div>
             `;
