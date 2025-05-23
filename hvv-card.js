@@ -130,7 +130,7 @@ class HvvCard extends LitElement {
                                         </td>
                                         <td class="expand">
                                             ${direction}
-                                            ${cancelled ? html`<span style="color: red; font-weight: bold;"> – fällt aus</span>` : ''}
+                                            ${cancelled ? html`<span class="cancelled"> – fällt aus</span>` : ''}
                                         </td>
                                         <td class="narrow" style="text-align:right;">
                                             ${this._config.show_time ?
@@ -192,6 +192,12 @@ class HvvCard extends LitElement {
             color: #ffffff;
             background-color: #888888;
             margin-right: 0.7em;
+        }
+
+
+        span.cancelled {
+            color: #e2001a;
+            font-weight: bold;
         }
 
         span.delay_minutes {
