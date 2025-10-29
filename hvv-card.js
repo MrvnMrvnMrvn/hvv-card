@@ -132,7 +132,7 @@ class HvvCard extends LitElement {
                                         <td class="expand">
                                             ${direction}
                                             ${cancelled ? html`<span class="cancelled"> – fällt aus</span>` : ''}
-                                            ${extra ? html`<span class="extra"> - Verstärker</span>` : ''}
+                                            ${extra ? html`<span class="extra"> – Verstärker</span>` : ''}
                                         </td>
                                         <td class="narrow" style="text-align:right;">
                                             ${this._config.show_time ?
@@ -288,17 +288,8 @@ class HvvCard extends LitElement {
         span.S6 {
             background-color: #d2d900;
         }
-
-        span.S11 {
-            background-color: #31962b;
-        }
-
-        span.S21 {
-            background-color: #b51143;
-        }
-
-        span.S31 {
-            background-color: #622181;
+        span.S7 {
+            background-color: #cc771f;
         }
       `;
     }
